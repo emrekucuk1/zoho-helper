@@ -30,6 +30,7 @@ if you are using this package for many tokens you should separate APP_NAME
 * People
 * CRM
 * Orchestly
+* Books
 
 
 ## Get zoho credential
@@ -64,6 +65,11 @@ zoho.initialize(["ZohoCRM.modules.ALL"],"http://github.com/redirect");
 * getLayer(org_id,layout_id)
 * getAllCustomFields(org_id)
 * getJobDetail(org_id,job_id,parameters\<Object>)
+
+#Zoho Books
+* createBankAccount(org_id,parameters\<Object>)
+* getCurrencies(org_id\<Object>)
+* getOrganizationId(\<Object>)
 
 #Zoho Functions
 * removeToken
