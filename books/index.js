@@ -16,6 +16,18 @@ class Books extends ZohoAuth {
         }
     }
 
+    async getCurrencies(org_id) {
+        const token = await this.getToken();
+        try {
+            return await this.customRequest(`https://books.zoho.com/api/v3/settings/currencies?organization_id=${org_id}`, "GET");
+        } catch (e) {
+            if (e.response !== undefined)
+                console.error(e.response.data);
+            else
+                console.error(e.message);
+        }
+    }
+
 }
 
 module.exports = Books;
