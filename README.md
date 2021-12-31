@@ -18,7 +18,7 @@ npm install
 ```
 
 ##### Using package
-* https://www.npmjs.com/package/@emrekucukdoz/zoho-package
+* https://www.npmjs.com/package/zoho-helper
 
 ```
 const People = require("zoho-helper").People;
