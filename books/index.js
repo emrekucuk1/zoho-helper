@@ -28,6 +28,18 @@ class Books extends ZohoAuth {
         }
     }
 
+    async getOrganizationId() {
+        const token = await this.getToken();
+        try {
+            return await this.customRequest(`https://books.zoho.com/api/v3/organizations`, "GET");
+        } catch (e) {
+            if (e.response !== undefined)
+                console.error(e.response.data);
+            else
+                console.error(e.message);
+        }
+    }
+
 }
 
 module.exports = Books;
