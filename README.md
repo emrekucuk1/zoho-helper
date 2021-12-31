@@ -12,16 +12,16 @@ Connecting To zoho services and manage most of the API's
 
 ##### Using github
 ```bash
-git clone git@github.com:emrekucuk1/zoho-helper
-cd zoho-package
+git clone https://github.com/emrekucuk1/zoho-helper.git
+cd zoho-helper
 npm install
 ```
 
 ##### Using package
-* https://www.npmjs.com/package/zoho-package
+* https://www.npmjs.com/package/zoho-helper
 
 ```
-const People = require("zoho-package").People;
+const People = require("zoho-helper").People;
 const people = new People("APP_NAME","CLIENT_ID","CLIENT_SECRET","REFRESH_TOKEN");
 ```
 if you are using this package for many tokens you should separate APP_NAME
@@ -35,7 +35,7 @@ if you are using this package for many tokens you should separate APP_NAME
 ## Get zoho credential
 * Read https://www.zoho.com/crm/developer/docs/api/v2/oauth-overview.html this article to retrieve Client ID and Client Secret.
 ```
-const Zoho = require("zoho-package").Zoho;
+const Zoho = require("zoho-helper").Zoho;
 const zoho  = new Zoho(CLIENT_ID,CLIENT_SECRET,null);
 zoho.initialize(["ZohoCRM.modules.ALL"],"http://github.com/redirect");
 ```
