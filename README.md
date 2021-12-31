@@ -12,7 +12,7 @@ Connecting To zoho services and manage most of the API's
 
 ##### Using github
 ```bash
-git clone git@github.com:farazfaraji/zoho-package
+git clone git@github.com:emrekucuk1/zoho-helper
 cd zoho-package
 npm install
 ```
@@ -73,5 +73,6 @@ zoho.initialize(["ZohoCRM.modules.ALL"],"http://github.com/redirect");
 
 #Support
 Please don't forget to contact with me if you have any problem:
-#####Email Address: faraz.faraji@gmail.com
-#####Git Repo: https://github.com/farazfaraji/zoho-packages
+#####Support Support: faraz.faraji@gmail.com
+#####Email Email: emrekck.34@gmail.com
+#####Git Repo: https://github.com/emrekucuk1/zoho-helper
