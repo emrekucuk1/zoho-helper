@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/emrekucuk1/zoho-helper#readme",
   "directories": {
-    "test": "test"
+    "test": "tests"
   }
 }
