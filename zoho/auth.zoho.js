@@ -82,6 +82,9 @@ class ZohoAuthentication {
         }else
         {
             config.url = url;
+            if(parameters){
+                config.data = parameters;
+            }
         }
 
         config.method = method.toString().toLowerCase();
