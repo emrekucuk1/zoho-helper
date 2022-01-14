@@ -89,7 +89,7 @@ class ZohoAuthentication {
 
         config.method = method.toString().toLowerCase();
         config.headers = {
-            'content-type': 'application/x-www-form-urlencoded',
+            'content-type': 'application/json',
             'Authorization': `Zoho-oauthtoken ${token}`,
         };
 
