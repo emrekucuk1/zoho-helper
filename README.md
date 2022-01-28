@@ -70,6 +70,9 @@ zoho.initialize(["ZohoCRM.modules.ALL"],"http://github.com/redirect");
 * createBankAccount(org_id,parameters\<Object>)
 * getCurrencies(org_id\<Object>)
 * getOrganizationId(\<Object>)
+* addTransaction(org_id,parameters\<Object>)
+* addExpense(org_id,parameters\<Object>)
+* getExpense(org_id\<Object>)
 
 #Zoho Functions
 * removeToken
@@ -79,6 +82,6 @@ zoho.initialize(["ZohoCRM.modules.ALL"],"http://github.com/redirect");
 
 #Support
 Please don't forget to contact with me if you have any problem:
-#####Support Support: faraz.faraji@gmail.com
 #####Email Email: emrekck.34@gmail.com
 #####Git Repo: https://github.com/emrekucuk1/zoho-helper
+#####Support Support: faraz.faraji@gmail.com
