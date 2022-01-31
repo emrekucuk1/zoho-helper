@@ -81,8 +81,8 @@ zoho.initialize(["ZohoCRM.modules.ALL"],"http://github.com/redirect");
 * initialize
 
 #Support
-Please don't forget to contact with me if you have any problem:
+* Please don't forget to contact with me if you have any problem:
 #Email
-emrekck.34@gmail.com && faraz.faraji@gmail.com
+* emrekck.34@gmail.com && faraz.faraji@gmail.com
 #Git Repo 
-https://github.com/emrekucuk1/zoho-helper
+* https://github.com/emrekucuk1/zoho-helper
