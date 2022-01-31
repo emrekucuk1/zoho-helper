@@ -73,6 +73,7 @@ zoho.initialize(["ZohoCRM.modules.ALL"],"http://github.com/redirect");
 * addTransaction(org_id,parameters\<Object>)
 * addExpense(org_id,parameters\<Object>)
 * getExpense(org_id\<Object>)
+* getChartOfAccounts(org_id\<Object>)
 
 #Zoho Functions
 * removeToken
