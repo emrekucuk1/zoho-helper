@@ -17,6 +17,18 @@ class Expense extends ZohoAuth {
         }
     }
 
+    async createExpense(org_id,parameters) {
+        const token = await this.getToken();
+        try {
+            return await this.customRequestV3(`https://expense.zoho.com/api/v1/expenses`, "POST",parameters);
+        } catch (e) {
+            if (e.response !== undefined)
+                console.error(e.response.data);
+            else
+                console.error(e.message);
+        }
+    }
+
 }
 
 

@@ -177,7 +177,7 @@ class ZohoAuthentication {
 
         config.method = method.toString().toLowerCase();
         config.headers = {
-            'content-type': 'application/json',
+            'content-type': 'application/json;charset=UTF-8',
             'Authorization': `Zoho-oauthtoken ${token}`,
             'X-com-zoho-expense-organizationid': `${organizationId}`
         };
