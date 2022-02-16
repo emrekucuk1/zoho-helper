@@ -198,7 +198,6 @@ class ZohoAuthentication {
     }
 
     async customRequestV4(url, method, organizationId, parameters) {
-        console.log('')
         if(!["GET","POST","PUT"].includes(method.toString().toUpperCase()))
             throw new Error("method is not included");
         const token = await this.getToken();
