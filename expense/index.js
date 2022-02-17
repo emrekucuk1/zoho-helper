@@ -53,6 +53,30 @@ class Expense extends ZohoAuth {
         }
     }
 
+    async expenseReports(org_id,parameters){
+        const token = await this.getToken();
+        try {
+            return await this.customRequestV3(`https://expense.zoho.com/api/v1/expensereports`, "POST", parameters, org_id);
+        } catch (e) {
+            if (e.response !== undefined)
+                console.error(e.response.data);
+            else
+                console.error(e.message);
+        }
+    }
+
+    async approveReports(org_id,parameters,expense_report_id){
+        const token = await this.getToken();
+        try {
+            return await this.customRequestV3(`https://expense.zoho.com/api/v1/expensereports/${expense_report_id}/approve`, "POST", parameters, org_id);
+        } catch (e) {
+            if (e.response !== undefined)
+                console.error(e.response.data);
+            else
+                console.error(e.message);
+        }
+    }
+
 
 
 }
