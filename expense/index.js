@@ -41,6 +41,20 @@ class Expense extends ZohoAuth {
         }
     }
 
+    async getCurrencies(org_id) {
+        const token = await this.getToken();
+        try {
+            return await this.customRequestV4(`https://expense.zoho.com/api/v1/settings/currencies`, "GET", org_id);
+        } catch (e) {
+            if (e.response !== undefined)
+                console.error(e.response.data);
+            else
+                console.error(e.message);
+        }
+    }
+
+
+
 }
 
 
