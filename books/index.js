@@ -112,6 +112,17 @@ class Books extends ZohoAuth {
         }
     }
 
+    async getCurrencies(org_id) {
+        try {
+            return await this.customRequestV2(`https://books.zoho.com/api/v3/settings/currencies?organization_id=${org_id}`, "GET");
+        }catch (e) {
+            if (e.response !== undefined)
+                console.error(e.response.data);
+            else
+                console.error(e.message);
+        }
+    }
+
 }
 
 
