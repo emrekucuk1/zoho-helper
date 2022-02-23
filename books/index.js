@@ -145,6 +145,30 @@ class Books extends ZohoAuth {
         }
     }
 
+    async uncategorizeTransactions(org_id,parameters,transaction_id) {
+        const token = await this.getToken();
+        try {
+            return await this.customRequest(`https://books.zoho.com/api/v3/banktransactions/${transaction_id}/uncategorize?organization_id=${org_id}`, "POST",parameters);
+        } catch (e) {
+            if (e.response !== undefined)
+                console.error(e.response.data);
+            else
+                console.error(e.message);
+        }
+    }
+
+    async getAllTransactions(org_id) {
+        try {
+            return await this.customRequestV2(`https://books.zoho.com/api/v3/banktransactions?organization_id=${org_id}`, "GET");
+        }catch (e) {
+            if (e.response !== undefined)
+                console.error(e.response.data);
+            else
+                console.error(e.message);
+        }
+    }
+
+
 }
 
 
