@@ -148,7 +148,7 @@ class Books extends ZohoAuth {
     async uncategorizeTransactions(org_id,parameters,transaction_id) {
         const token = await this.getToken();
         try {
-            return await this.customRequest(`https://books.zoho.com/api/v3/banktransactions/${transaction_id}/uncategorize?organization_id=${org_id}`, "POST",parameters);
+            return await this.customRequestV5(`https://books.zoho.com/api/v3/banktransactions/${transaction_id}/uncategorize?organization_id=${org_id}`, "POST",parameters);
         } catch (e) {
             if (e.response !== undefined)
                 console.error(e.response.data);
