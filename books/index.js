@@ -180,6 +180,18 @@ class Books extends ZohoAuth {
         }
     }
 
+    async deleteTransactions(org_id,parameters,transaction_id) {
+        const token = await this.getToken();
+        try {
+            return await this.customRequestV6(`https://books.zoho.com/api/v3/banktransactions/${transaction_id}?organization_id=${org_id}`, "DELETE",parameters);
+        } catch (e) {
+            if (e.response !== undefined)
+                console.error(e.response.data);
+            else
+                console.error(e.message);
+        }
+    }
+
 
 }
 
