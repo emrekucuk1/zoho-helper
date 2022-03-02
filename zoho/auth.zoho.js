@@ -330,6 +330,50 @@ class ZohoAuthentication {
         }
     }
 
+    async customRequestV7(url, method, parameters, organizationId) {
+        if(!["GET","POST","PUT"].includes(method.toString().toUpperCase()))
+            throw new Error("method is not included");
+        const token = await this.getToken();
+        let config = {};
+        if(method.toString().toLowerCase()==="x"){
+            let params = [];
+            for(let parameter in parameters){
+                if (parameters.hasOwnProperty(parameter)) {
+                    if(parameters[parameter]===undefined)
+                        continue;
+                    params.push(encodeURI(parameter) + "=" + encodeURI(parameters[parameter]));
+                }
+            }
+            config.url = url + "?" +  params.join("&");
+        }else
+        {
+            config.url = url;
+            if(parameters){
+                config.data = parameters;
+            }
+        }
+
+        config.method = method.toString().toLowerCase();
+        config.headers = {
+            'orgId': `${organizationId}`,
+            'Authorization': `Zoho-oauthtoken ${token}`
+        };
+
+        try {
+            const response = await axios(config);
+            return response.data;
+        } catch (e) {
+            if(e.response.status===401)
+            {
+                if(fs.existsSync(`${__dirname}/token${this.uniq_name}.zoho`))
+                    fs.unlinkSync(`${__dirname}/token${this.uniq_name}.zoho`);
+                this.token=null;
+                return this.customRequest(url,method,parameters);
+            }else
+                console.error(e.response.data);
+        }
+    }
+
     /**
      *
      * @param scopes Array
