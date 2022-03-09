@@ -159,7 +159,7 @@ class Books extends ZohoAuth {
 
     async getAllTransactions(org_id) {
         try {
-            return await this.customRequestV2(`https://books.zoho.com/api/v3/banktransactions?organization_id=${org_id}`, "GET");
+            return await this.customRequest(`https://books.zoho.com/api/v3/banktransactions?organization_id=${org_id}`, "GET");
         }catch (e) {
             if (e.response !== undefined)
                 console.error(e.response.data);
@@ -172,6 +172,18 @@ class Books extends ZohoAuth {
         const token = await this.getToken();
         try {
             return await this.customRequestV5(`https://books.zoho.com/api/v3/bankstatements?organization_id=${org_id}`, "POST",parameters);
+        } catch (e) {
+            if (e.response !== undefined)
+                console.error(e.response.data);
+            else
+                console.error(e.message);
+        }
+    }
+
+    async deleteTransactions(org_id,parameters,transaction_id) {
+        const token = await this.getToken();
+        try {
+            return await this.customRequestV6(`https://books.zoho.com/api/v3/banktransactions/${transaction_id}?organization_id=${org_id}`, "DELETE",parameters);
         } catch (e) {
             if (e.response !== undefined)
                 console.error(e.response.data);
