@@ -159,7 +159,7 @@ class Books extends ZohoAuth {
 
     async getAllTransactions(org_id) {
         try {
-            return await this.customRequest(`https://books.zoho.com/api/v3/banktransactions?organization_id=${org_id}`, "GET");
+            return await this.customRequestV2(`https://books.zoho.com/api/v3/banktransactions?organization_id=${org_id}`, "GET");
         }catch (e) {
             if (e.response !== undefined)
                 console.error(e.response.data);
