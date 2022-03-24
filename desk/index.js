@@ -16,9 +16,20 @@ class Desk extends ZohoAuth {
         }
     }
 
-    async getTickets(org_id) {
+    async getAllTickets(org_id) {
         try {
-            return await this.customRequestV7(`https://desk.zoho.com/api/v1/tickets?include=contacts,assignee,departments,team,isRead`, "GET","",org_id);
+            return await this.customRequestV7(`https://desk.zoho.com/api/v1/tickets`, "GET","",org_id);
+        }catch (e) {
+            if (e.response !== undefined)
+                console.error(e.response.data);
+            else
+                console.error(e.message);
+        }
+    }
+
+    async getTicket(org_id,ticketId) {
+        try {
+            return await this.customRequestV7(`https://desk.zoho.com/api/v1/tickets/${ticketId}`, "GET","",org_id);
         }catch (e) {
             if (e.response !== undefined)
                 console.error(e.response.data);
