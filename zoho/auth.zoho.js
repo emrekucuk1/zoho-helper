@@ -357,8 +357,8 @@ class ZohoAuthentication {
 
         config.method = method.toString().toLowerCase();
         config.headers = {
-            'orgId': ${organizationId},
-            'Authorization': Zoho-oauthtoken ${token}
+            'orgId': `${organizationId}`,
+            'Authorization': `Zoho-oauthtoken ${token}`
         };
 
         try {
