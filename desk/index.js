@@ -16,9 +16,32 @@ class Desk extends ZohoAuth {
         }
     }
 
-    async getAllTickets(org_id) {
+    async getAgent(org_id, agentId) {
         try {
-            return await this.customRequestV7(`https://desk.zoho.com/api/v1/tickets`, "GET","",org_id);
+            return await this.customRequestV7(`https://desk.zoho.com/api/v1/agents/${agentId}`, "GET", "",org_id);
+        }catch (e) {
+            if (e.response !== undefined)
+                console.error(e.response.data);
+            else
+                console.error(e.message);
+        }
+    }
+
+    async getAllTickets(org_id,from,limit) {
+        try {
+            return await this.customRequestV7(`https://desk.zoho.com/api/v1/tickets`, "GET",{"from":from,"limit":limit},org_id);
+        }catch (e) {
+            if (e.response !== undefined)
+                console.error(e.response.data);
+            else
+                console.error(e.message);
+        }
+    }
+
+    async searchTickets(org_id,from,limit,modifiedTimeRange) {
+        try {
+            return await this.customRequestV7(`https://desk.zoho.com/api/v1/tickets/search`,
+                "GET",{"from":from,"limit":limit, "modifiedTimeRange":modifiedTimeRange},org_id);
         }catch (e) {
             if (e.response !== undefined)
                 console.error(e.response.data);
@@ -30,6 +53,17 @@ class Desk extends ZohoAuth {
     async getTicket(org_id,ticketId) {
         try {
             return await this.customRequestV7(`https://desk.zoho.com/api/v1/tickets/${ticketId}`, "GET","",org_id);
+        }catch (e) {
+            if (e.response !== undefined)
+                console.error(e.response.data);
+            else
+                console.error(e.message);
+        }
+    }
+
+    async getTicketMetrics(org_id,ticketId) {
+        try {
+            return await this.customRequestV7(`https://desk.zoho.com/api/v1/tickets/${ticketId}/metrics`, "GET","",org_id);
         }catch (e) {
             if (e.response !== undefined)
                 console.error(e.response.data);

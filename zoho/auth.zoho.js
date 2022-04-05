@@ -335,7 +335,8 @@ class ZohoAuthentication {
             throw new Error("method is not included");
         const token = await this.getToken();
         let config = {};
-        if(method.toString().toLowerCase()==="x"){
+        //console.log(method.toString().toLowerCase());
+        if(method.toString().toLowerCase()==="get"){
             let params = [];
             for(let parameter in parameters){
                 if (parameters.hasOwnProperty(parameter)) {
@@ -345,6 +346,7 @@ class ZohoAuthentication {
                 }
             }
             config.url = url + "?" +  params.join("&");
+
         }else
         {
             config.url = url;
@@ -355,8 +357,8 @@ class ZohoAuthentication {
 
         config.method = method.toString().toLowerCase();
         config.headers = {
-            'orgId': `${organizationId}`,
-            'Authorization': `Zoho-oauthtoken ${token}`
+            'orgId': ${organizationId},
+            'Authorization': Zoho-oauthtoken ${token}
         };
 
         try {
