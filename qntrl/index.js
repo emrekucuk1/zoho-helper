@@ -59,6 +59,18 @@ class QNTRL extends ZohoAuth {
                 console.error(e.message);
         }
     }
+
+    async createJob(org_id,parameters) {
+        const token = await this.getToken();
+        try {
+            return await this.customRequest(`https://coreapi.qntrl.com/blueprint/api/${org_id}/job`, "POST",parameters);
+        } catch (e) {
+            if (e.response !== undefined)
+                console.error(e.response.data);
+            else
+                console.error(e.message);
+        }
+    }
 }
 
 module.exports = QNTRL;
