@@ -1,6 +1,6 @@
 {
   "name": "zoho-helper",
-  "version": "1.51.1",
+  "version": "1.51.2",
   "description": "handling zoho functions",
   "main": "index.js",
   "scripts": {
