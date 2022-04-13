@@ -123,7 +123,7 @@ class QNTRL extends ZohoAuth {
         try {
             var out = encodeURI(`https://coreapi.qntrl.com/blueprint/api/${org_id}/job?title=${title}&layout_id=${layout_id}&customfield_dropdown20=${project}&customfield_dropdown11=${currency}&customfield_dropdown50=${category}&customfield_dropdown25=${fwc}&customfield_shorttext6=${payee}&customfield_decimal2=${amount}&description=${description1}`);
             console.log(out)
-            return await this.customRequest(out, "POST");
+            return await this.customRequestRevo(out, "POST");
         } catch (e) {
             if (e.response !== undefined)
                 console.error(e.response.data);
