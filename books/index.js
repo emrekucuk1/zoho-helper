@@ -5,6 +5,12 @@ class Books extends ZohoAuth {
         super(_uniq_name,_client_id, _client_secret, _refresh_token)
     }
 
+    /**
+     *
+     * @param org_id
+     * @param parameters
+     * @returns {Promise<*|undefined>}
+     */
     async createBankAccount(org_id,parameters) {
         try {
             return await this.customRequest(`https://books.zoho.com/api/v3/bankaccounts?organization_id=${org_id}`, "POST",parameters);
@@ -16,6 +22,11 @@ class Books extends ZohoAuth {
         }
     }
 
+    /**
+     *
+     * @param org_id
+     * @returns {Promise<*|undefined>}
+     */
     async getCurrencies(org_id) {
         const token = await this.getToken();
         try {
@@ -28,6 +39,10 @@ class Books extends ZohoAuth {
         }
     }
 
+    /**
+     *
+     * @returns {Promise<*|undefined>}
+     */
     async getOrganizationId() {
         const token = await this.getToken();
         try {
@@ -40,6 +55,12 @@ class Books extends ZohoAuth {
         }
     }
 
+    /**
+     *
+     * @param org_id
+     * @param parameters
+     * @returns {Promise<*|undefined>}
+     */
     async addTransactions(org_id,parameters) {
         const token = await this.getToken();
         try {
@@ -52,6 +73,12 @@ class Books extends ZohoAuth {
         }
     }
 
+    /**
+     *
+     * @param org_id
+     * @param parameters
+     * @returns {Promise<*|undefined>}
+     */
     async addExpense(org_id,parameters) {
         const token = await this.getToken();
         try {
@@ -64,6 +91,11 @@ class Books extends ZohoAuth {
         }
     }
 
+    /**
+     *
+     * @param org_id
+     * @returns {Promise<*|undefined>}
+     */
     async getExpenses(org_id) {
         const token = await this.getToken();
         try {
@@ -76,6 +108,11 @@ class Books extends ZohoAuth {
         }
     }
 
+    /**
+     *
+     * @param org_id
+     * @returns {Promise<*|undefined>}
+     */
     async getChartOfAccounts(org_id) {
         const token = await this.getToken();
         try {
@@ -88,6 +125,11 @@ class Books extends ZohoAuth {
         }
     }
 
+    /**
+     *
+     * @param org_id
+     * @returns {Promise<*|undefined>}
+     */
     async getChartOfAccounts(org_id) {
         const token = await this.getToken();
         try {
@@ -100,6 +142,11 @@ class Books extends ZohoAuth {
         }
     }
 
+    /**
+     *
+     * @param org_id
+     * @returns {Promise<*|undefined>}
+     */
     async getExpenseList(org_id) {
         const token = await this.getToken();
         try {
@@ -112,6 +159,11 @@ class Books extends ZohoAuth {
         }
     }
 
+    /**
+     *
+     * @param org_id
+     * @returns {Promise<*|undefined>}
+     */
     async getCurrencies(org_id) {
         try {
             return await this.customRequestV2(`https://books.zoho.com/api/v3/settings/currencies?organization_id=${org_id}`, "GET");
@@ -123,6 +175,11 @@ class Books extends ZohoAuth {
         }
     }
 
+    /**
+     *
+     * @param org_id
+     * @returns {Promise<*|undefined>}
+     */
     async chartOfAccounts(org_id) {
         try {
             return await this.customRequestV2(`https://books.zoho.com/api/v3/chartofaccounts?organization_id=${org_id}`, "GET");
@@ -134,6 +191,11 @@ class Books extends ZohoAuth {
         }
     }
 
+    /**
+     *
+     * @param org_id
+     * @returns {Promise<*|undefined>}
+     */
     async getAllBankv2(org_id) {
         try {
             return await this.customRequestV2(`https://books.zoho.com/api/v3/bankaccounts?organization_id=${org_id}`, "GET");
@@ -145,6 +207,13 @@ class Books extends ZohoAuth {
         }
     }
 
+    /**
+     *
+     * @param org_id
+     * @param parameters
+     * @param transaction_id
+     * @returns {Promise<*|undefined>}
+     */
     async uncategorizeTransactions(org_id,parameters,transaction_id) {
         const token = await this.getToken();
         try {
@@ -157,6 +226,11 @@ class Books extends ZohoAuth {
         }
     }
 
+    /**
+     *
+     * @param org_id
+     * @returns {Promise<*|undefined>}
+     */
     async getAllTransactions(org_id) {
         try {
             return await this.customRequestV2(`https://books.zoho.com/api/v3/banktransactions?organization_id=${org_id}`, "GET");
@@ -168,6 +242,12 @@ class Books extends ZohoAuth {
         }
     }
 
+    /**
+     *
+     * @param org_id
+     * @param parameters
+     * @returns {Promise<*|undefined>}
+     */
     async addStatments(org_id,parameters) {
         const token = await this.getToken();
         try {
@@ -180,6 +260,13 @@ class Books extends ZohoAuth {
         }
     }
 
+    /**
+     *
+     * @param org_id
+     * @param parameters
+     * @param transaction_id
+     * @returns {Promise<*|undefined>}
+     */
     async deleteTransactions(org_id,parameters,transaction_id) {
         const token = await this.getToken();
         try {
@@ -192,6 +279,13 @@ class Books extends ZohoAuth {
         }
     }
 
+    /**
+     *
+     * @param org_id
+     * @param parameters
+     * @param transaction_id
+     * @returns {Promise<*|undefined>}
+     */
     async deleteTransactions(org_id,parameters,transaction_id) {
         const token = await this.getToken();
         try {

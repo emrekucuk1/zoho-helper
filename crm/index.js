@@ -5,6 +5,13 @@ class CRM extends ZohoAuth {
         super(uniq_name,client_id, client_secret, refresh_token)
     }
 
+    /**
+     *
+     * @param formName
+     * @param sIndex
+     * @param limit
+     * @returns {Promise<*|undefined>}
+     */
     async getForms(formName,sIndex=1,limit=200) {
         try {
             return await this.customRequest(`https://people.zoho.com/people/api/forms/${formName}/getRecords?sIndex=${sIndex}&limit=${limit}`, "POST");
