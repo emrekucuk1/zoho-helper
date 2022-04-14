@@ -131,6 +131,58 @@ class QNTRL extends ZohoAuth {
                 console.error(e.message);
         }
     }
+
+    /**
+     *
+     * @param org_id
+     * @param title
+     * @param record_owner
+     * @param layout_id
+     * @param date_of_join
+     * @param evaluated_name
+     * @param department
+     * @param employee_title
+     * @param salary
+     * @param link
+     * @param manager
+     * @param managerName
+     * @returns {Promise<*|undefined>}
+     */
+    async createJobEmployee(org_id,title,record_owner,layout_id,date_of_join,evaluated_name,department,employee_title,salary,link,manager,managerName) {
+        try {
+            var out = encodeURI(`https://coreapi.qntrl.com/blueprint/api/${org_id}/job?title=${title}&record_owner=${record_owner}&layout_id=${layout_id}&customfield_shorttext95=${date_of_join}&customfield_shorttext94=${evaluated_name}&customfield_dropdown25=${department}&customfield_longtext6=${employee_title}&customfield_decimal2=${salary}&customfield_shorttext16=${link}&customfield_shorttext96=${manager}&customfield_shorttext63=${managerName}`);
+            console.log(out)
+            return await this.customRequestRevo(out, "POST");
+        } catch (e) {
+            if (e.response !== undefined)
+                console.error(e.response.data);
+            else
+                console.error(e.message);
+        }
+    }
+
+    /**
+     *
+     * @param org_id
+     * @param title
+     * @param record_owner
+     * @param layout_id
+     * @param description
+     * @param hr_link
+     * @returns {Promise<*|undefined>}
+     */
+    async createJobEmployeeHR(org_id,title,record_owner,layout_id,description,hr_link) {
+        try {
+            var out = encodeURI(`https://coreapi.qntrl.com/blueprint/api/${org_id}/job?title=${title}&record_owner=${record_owner}&layout_id=${layout_id}&description=${description}&customfield_shorttext66=${hr_link}&priority=6336000000000287`);
+            console.log(out)
+            return await this.customRequestRevo(out, "POST");
+        } catch (e) {
+            if (e.response !== undefined)
+                console.error(e.response.data);
+            else
+                console.error(e.message);
+        }
+    }
 }
 
 module.exports = QNTRL;
