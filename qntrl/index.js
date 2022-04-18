@@ -183,6 +183,32 @@ class QNTRL extends ZohoAuth {
                 console.error(e.message);
         }
     }
+
+    /**
+     *
+     * @param org_id
+     * @param title
+     * @param record_owner
+     * @param layout_id
+     * @param evaluated_name
+     * @param department
+     * @param employee_title
+     * @param enddate
+     * @param priotity
+     * @returns {Promise<*|undefined>}
+     */
+    async createJobEmployeeWorkPermit(org_id,title,record_owner,layout_id,evaluated_name,department,employee_title,enddate,priotity) {
+        try {
+            var out = encodeURI(`https://coreapi.qntrl.com/blueprint/api/${org_id}/job?title=${title}&record_owner=${record_owner}&layout_id=${layout_id}&customfield_shorttext47=${enddate}&customfield_shorttext28=${evaluated_name}&customfield_shorttext97=${department}&customfield_shorttext15=${employee_title}&priority=${priotity}`);
+            console.log(out)
+            return await this.customRequestRevo(out, "POST");
+        } catch (e) {
+            if (e.response !== undefined)
+                console.error(e.response.data);
+            else
+                console.error(e.message);
+        }
+    }
 }
 
 module.exports = QNTRL;
