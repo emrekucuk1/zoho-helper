@@ -316,6 +316,24 @@ class Books extends ZohoAuth {
         }
     }
 
+    /**
+     *
+     * @param org_id
+     * @param parameters
+     * @returns {Promise<*|undefined>}
+     */
+    async deleteBalance(org_id,parameters) {
+        const token = await this.getToken();
+        try {
+            return await this.customRequestV6(`https://books.zoho.com/api/v3/settings/openingbalances?organization_id=${org_id}`, 'DELETE',parameters)
+        }catch (e) {
+            if (e.response !== undefined)
+                console.log(e.response.data);
+            else
+                console.error(e.message)
+        }
+    }
+
 
 }
 
